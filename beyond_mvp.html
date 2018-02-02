@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/moon.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<!-- page 1 -->
+				<section>What's the M in MVP?</section>
+				<!-- page 2 -->
+				<section>
+					<h2>So we have settled on a great UI architecture ...</h2>
+					<span class="fragment fade-up">MVP ... </span>
+					<span class="fragment fade-up">MVC ... </span>
+					<span class="fragment fade-up">MVVM ... </span>
+					<span class="fragment fade-up">MVI ...</span>
+					<p class="fragment fade-up">What do they all have in common?</p>
+				</section>
+				<section>
+					<h1>The <b></b>Model</b></h1>
+					<p>
+					<blockquote cite="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">
+						&ldquo;The model is the central component of the pattern. It expresses the application's behavior in terms of the problem domain, independent of the user interface. It directly manages the data, logic and rules of the application.&rdquo;
+					</blockquote>
+					</p>
+					<span class="fragment fade-up">Consists of ...</span>
+					<span class="fragment fade-up">Domain data objects, ...</span>
+					<span class="fragment fade-up">Use cases, ...</span>
+					<p class="fragment fade-up">and the <i>implementation</i></p>
+				</section>
+				<section>
+					How to structure the model ?
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
