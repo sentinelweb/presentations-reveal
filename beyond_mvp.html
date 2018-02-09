@@ -25,6 +25,7 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
+				<!-- make QR code : https://sentinelweb.github.io/reveal.js/beyond_mvp.html -->
 				<!-- page 1 -->
 				<section>What's the M in MVP?</section>
 				<!-- page 2 -->
@@ -36,17 +37,24 @@
 					<span class="fragment fade-up">MVI ...</span>
 					<p class="fragment fade-up">What do they all have in common?</p>
 				</section>
+				<!-- page 3 -->
 				<section>
-					<h1>The <b></b>Model</b></h1>
+					<h2>The <b></b>Model</b></h2>
 					<p>
 					<blockquote cite="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">
-						&ldquo;The model is the central component of the pattern. It expresses the application's behavior in terms of the problem domain, independent of the user interface. It directly manages the data, logic and rules of the application.&rdquo;
+						<span class="fragment fade-up">&ldquo;The model is the central component of the pattern. </span><span class="fragment fade-up"><br/><br/>It expresses the application's behavior in terms of the problem domain, independent of the user interface. </span><span class="fragment fade-up"><br/><br/>It directly manages the data, logic and rules of the application.&rdquo;</span>
 					</blockquote>
 					</p>
-					<span class="fragment fade-up">Consists of ...</span>
-					<span class="fragment fade-up">Domain data objects, ...</span>
-					<span class="fragment fade-up">Use cases, ...</span>
-					<p class="fragment fade-up">and the <i>implementation</i></p>
+				</section>
+				<!-- page 4 -->
+				<section>
+					<p>Consists of ...</p>
+					<ul>
+						<li class="fragment fade-up">Domain data objects</li>
+						<li class="fragment fade-up">Use cases</li>
+						<li class="fragment fade-up">and the <i>implementation</i></li>
+						<p class="fragment fade-up"><small>(just a small thing)</small>
+					</ul>
 				</section>
 				<section>
 					How to structure the model ?
@@ -67,7 +75,8 @@
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
+				],
+				history: true
 			});
 		</script>
 	</body>
