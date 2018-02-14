@@ -57,7 +57,147 @@
 					</ul>
 				</section>
 				<section>
-					How to structure the model ?
+					<p>How to structure the model ?</p>
+					<div class="fragment fade-up"><small>enter</small><h2>The Clean Architecture</h2></div>
+				</section>
+				<section>
+					<section>
+						<h3>The Clean Architecture</h3>
+						<ul>
+							<li class="fragment fade-up">Strong dependency relationships</li>
+							<li class="fragment fade-up">Separation of concerns</li>
+							<li class="fragment fade-up">Hard sub-system boundaries (Interfaces)</li>
+							<li class="fragment fade-up">Decoupled sub-systems</li>
+							<p class="fragment fade-up"><img src="https://media.giphy.com/media/3oEduItaZJKjzY6Kuk/giphy.gif"/></p>
+						</ul>
+					</section>
+					<section>
+							<h3>The Clean Architecture (notes)</h3>
+							<ul>
+								<li><a href="https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html" target="_blank">Uncle bob blog post</a></li>
+								<li><a href="https://crosp.net/blog/software-architecture/clean-architecture-part-2-the-clean-architecture/" target="_blank">crosp.net</a></li>
+								<li><a href="https://softwareengineering.stackexchange.com/questions/357052/clean-architecture-use-case-containing-the-presenter-or-returning-data" target="_blank">Nice SO post</a></li>
+					</section>
+				</section>
+				<!-- diagram ??-->
+				<section>
+					<h3>Domain</h3>
+					<ul>
+						<li class="fragment fade-up">Your business model</li>
+						<li class="fragment fade-up">Represents real world items</li>
+						<li class="fragment fade-up">Only dependencies are other domain objects</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Use cases</h3>
+					<ul>
+						<li class="fragment fade-up">Simple interfaces that define business actions</li>
+						<li class="fragment fade-up">Decouple presentation/UI Architecture from the model</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Some simple design-patterns to enforce decoupling</h3>
+					<ul>
+						<li class="fragment fade-up">Repository</li>
+						<li class="fragment fade-up">Mappers</li>
+						<li class="fragment fade-up">Interactors / Orchectrators</li>
+						<li class="fragment fade-up">Services</li>
+						<li class="fragment fade-up">Decorator</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Repository</h3>
+					<blockquote class="fragment fade-up">Isolates domain objects from details of the datasource access code</blockquote>
+					<ul>
+						<li class="fragment fade-up">Provides CRUD operations at the domain level</li>
+						<li class="fragment fade-up">Encapsulates collections of domain objects</li>
+						<li class="fragment fade-up">Abstracts the datasource querying details from the use case / interactor</li>
+						<li class="fragment fade-up">Provide independence from the datasource</li>
+						<li class="fragment fade-up">Datasource might be anything: Database, File-based access, Properties</li>
+						
+					</ul>
+				</section>
+				<section>
+					<h3>Repository - DO's</h3>
+					<ul>
+						<li class="fragment fade-up">Make 1 repository per datasource</li>
+						<li class="fragment fade-up">Use an interactor to access the repository</li>
+					</ul>
+				</section>
+					
+				<section>
+					<h3>Repository - DONT's</h3>
+					<ul>
+						<li class="fragment fade-up">Some definitions put caching code in the repository</li>
+						<li class="fragment fade-up"> -&gt; Not a great idea - make an interactor to explicity cache data to the repository</li>
+						<li class="fragment fade-up">DONT mix datasources into one repository (coupling)</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Mappers</h3>
+					<blockquote>An object that sets up a communication between two independent objects.</blockquote>
+					<ul>
+						<li class="fragment fade-up">Decouple state objects from each other</li>
+						<li class="fragment fade-up">e.g. Map DTO &lt;-&gt; Domain, Db Entity &lt;-&gt; Domain</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Interactors</h3>
+					<blockquote>These are the classes which actually contain your business logic code &amp; implement Use-cases.</blockquote>
+					<ul>
+						<li class="fragment fade-up">Interacts with a sub-system from the model</li>
+						<li class="fragment fade-up">Implements a use case</li>
+						<li class="fragment fade-up">Try to keep interactions simple and atomic (Observe SRP)</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Orchestrators</h3>
+					<blockquote>Coordinates multiple interactions to complete a comple task</blockquote>
+					<ul>
+						<li class="fragment fade-up">Composition of interactions when Use case is complex</li>
+						<li class="fragment fade-up">Implemention for a complex use case</li>
+						<li class="fragment fade-up">Not a clean archtiecture pattern (is an EEA pattern)</li>
+						<li class="fragment fade-up">Some might just call it an interactor</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Services</h3>
+					<blockquote>When an operation does not conceptually belong to any object. Following the natural contours of the problem, you can implement these operations in services.</blockquote>
+					<ul>
+						<li class="fragment fade-up">Service is a pattern that abstracts a subsystem behind an interface.</li>
+						<li class="fragment fade-up">A Convenient way to provide functionality that can be tapped into as needed.</li>
+						<!-- maybe spit this into a separate slide-->
+						<li class="fragment fade-up"><b>Examples</b>: Web services, Android System services (WindowService), App services(android service).</li>
+					</ul>	
+				</section>
+				<section>
+					<h3>Decorator</h3>
+					<blockquote>The decorator pattern is a design pattern that allows behavior to be added to an individual object, either statically or dynamically, without affecting the behavior of other objects from the same class.</blockquote>
+					<ul>
+						<li class="fragment fade-up">Gang-of-four pattern - Not Architecture pattern</li>
+						<li class="fragment fade-up">Great alternative to utility/helper classes / static methods</li>
+					</ul>
+				</section>
+				<section>
+					<h3>DO's</h3>
+					<ul>
+						<li class="fragment fade-up">Make everything testable</li>
+					</ul>
+				</section>
+				<section>
+					<h3>DONT's</h3>
+					<ul>
+						<li class="fragment fade-up">Couple your model to android classes</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Thank you</h3>
+					<p><a href="https://twitter.com/sentinelwebtech" target="_blank">
+						<img src="https://marketing.twitter.com/content/dam/marketing-twitter/brand/logo.png" width="60" height="60" border="0" style="vertical-align:middle;border:0px;"/>&nbsp; @Sentinelwebtech
+					</a></p>
+					<p><a href="https://github.com/sentinelweb" target="_blank">
+						<img src="https://assets-cdn.github.com/images/modules/logos_page/Octocat.png" width="60" height="60" border="0" style="vertical-align:middle;border:0px;"/>&nbsp; Sentinelweb
+					</a></p>
 				</section>
 			</div>
 		</div>
