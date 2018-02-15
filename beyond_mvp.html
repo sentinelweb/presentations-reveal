@@ -90,22 +90,62 @@
 						<ul>
 							<li class="fragment fade-up">Your business model</li>
 							<li class="fragment fade-up">Represents real world items</li>
-							<li class="fragment fade-up">Only dependencies are other domain objects (NO frameworks, datasource dependencies)</li>
-							<li class="fragment fade-up">Domain driven design (DDD) is a whole design area - lots of CA overlap</li>
+							<li class="fragment fade-up">Only dependencies are other domain objects</li><span></span>
+							<li class="fragment fade-up">Domain driven design (DDD) is a whole area 
+								<ul>
+									<li class="fragment fade-up">lots of Clean Architecture overlap</li>
+								</ul>
+							</li>
 						</ul>
 					</section>
 					<section>
 						<h3>Domain (notes)</h3>
 						<ul>
-							<li><a href=" https://www.infoq.com/articles/ddd-in-practice" target="_blank">Long-ish writeup on DDD (InfoQ)</a></li>
+							<li><a href="https://en.wikipedia.org/wiki/Domain-driven_design" target="_blank">Wikipedia overview</a></li>
+							<li><a href="https://www.infoq.com/articles/ddd-in-practice" target="_blank">Long-ish writeup on DDD (InfoQ)</a></li>
 						</ul>
 					</section>
 				</section>
 				<section>
+					<h3>Domain - DO's and DONT's</h3>
+					<ul>
+						<li class="fragment fade-up"><b>DO</b> Take the time to model your domain accurately and in detail (save refactoring later)</li>
+						<li class="fragment fade-up"><b>DO</b> Make your domain objects immutable 
+							<ul>
+								<li class="fragment fade-up">Mutate your domain objects in a use case</li>
+							</ul>
+						</li>
+						<li class="fragment fade-up"><b>DONT</b> depend on any other part of your framework (even use cases, M* UI Layer, ...)</li>
+						<li class="fragment fade-up"><b>DONT</b> depend on any part of others frameworks (DBs, Android, HTTP, DTOs, ...)</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Domain - Example</h3>
+					<b>Problems?</b>
+					<pre><code data-trim data-noescape>
+data class AccountDomain(
+	val id: Long?,
+	val name: String,
+	val type: AccountType,
+	val balances: List<BalanceDomain>,
+	val tranasactions: List<TransactionItemDomain> = listOf(),
+	val colour: ColourDomain = ColourDomain.TRANSPARENT) {
+
+	companion object {
+		val NONE = AccountDomain(
+			null, 
+			"", 
+			AccountType.INITIAL, 
+			listOf())
+	}
+}					</code></pre>
+				</section>
+				<!-- problems discussion id: bad - use server id (not a local one), Serialization/Parcelling, colour? UI? still domain data -->
+				<section>
 					<h3>Use cases</h3>
 					<ul>
 						<li class="fragment fade-up">Simple interfaces that define business actions</li>
-						<li class="fragment fade-up">Decouple presentation/UI Architecture from the model</li>
+						<li class="fragment fade-up">De-couple presentation/UI Architecture from the model</li>
 					</ul>
 				</section>
 				<section>
@@ -141,7 +181,7 @@
 					<ul>
 						<li class="fragment fade-up">Some definitions put caching code in the repository</li>
 						<li class="fragment fade-up"> -&gt; Not a great idea - make an interactor to explicity cache data to the repository</li>
-						<li class="fragment fade-up">DONT mix datasources into one repository (coupling)</li>
+						<li class="fragment fade-up"><b>DONT</b> mix datasources into one repository (coupling)</li>
 					</ul>
 				</section>
 				<section>
@@ -184,15 +224,15 @@
 				<section>
 					<h3>DO's</h3>
 					<ul>
-						<li class="fragment fade-up">DO - Make everything testable and test everything</li>
-						<li class="fragment fade-up">DO - Use interfaces for all these patterns</li>
+						<li class="fragment fade-up"><b>DO</b> Make everything testable and test everything</li>
+						<li class="fragment fade-up"><b>DO</b> Use interfaces for all these patterns</li>
 					</ul>
 				</section>
 				<section>
 					<h3>DONT's</h3>
 					<ul>
-						<li class="fragment fade-up">DONT - Couple your model to android classes</li>
-						<li class="fragment fade-up">DONT - Mix patterns in the same class (violate SRP)</li>
+						<li class="fragment fade-up"><b>DONT</b> - Couple your model to android classes</li>
+						<li class="fragment fade-up"><b>DONT</b> - Mix patterns in the same class (violate SRP)</li>
 					</ul>
 				</section>
 				<section>
@@ -208,6 +248,8 @@
 						<span style="vertical-align:baseline;color:#888; font-size:12px;">(nice place to work)</span>
 					</a></p>
 				</section>
+				<!--<section>QR code</section>-->
+				<!-- looping -->
 			</div>
 		</div>
 
@@ -225,7 +267,9 @@
 					{ src: 'plugin/notes/notes.js', async: true },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				],
-				history: true
+				history: true,
+				loop: true,
+				slideNumber: 'c/v/t'
 			});
 		</script>
 	</body>
