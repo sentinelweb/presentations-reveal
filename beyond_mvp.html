@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>What's the M in MVP?</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/moon.css">
@@ -26,6 +26,12 @@
 		<div class="reveal">
 			<div class="slides">
 				<!-- make QR code : https://sentinelweb.github.io/reveal.js/beyond_mvp.html -->
+				<section>
+					<div style="text-align:center;">
+						<img src="./beyond_mvp/m_in_mvp_bitly.jpg" style="height:600px;border:0px;"/>
+						<b>http://bit.ly/2o41MCZ</b>
+					</div>
+				</section>
 				<!-- page 1 -->
 				<section>
 					<h2>What's the M in MVP?</h2>
@@ -190,6 +196,7 @@ data class AccountDomain(
 					<ul>
 						<li class="fragment fade-up">Decouple state objects from each other</li>
 						<li class="fragment fade-up">e.g. Map DTO &lt;-&gt; Domain, Db Entity &lt;-&gt; Domain</li>
+						<li class="fragment fade-up">Easy to break out sub-mappers to keep testing easy (e.g. collection fields)</li>
 					</ul>
 				</section>
 				<section>
@@ -198,7 +205,7 @@ data class AccountDomain(
 					<ul>
 						<li class="fragment fade-up">Interacts with a sub-system from the model</li>
 						<li class="fragment fade-up">Implements a use case</li>
-						<li class="fragment fade-up">Try to keep interactions simple and atomic (Observe SRP)</li>
+						<li class="fragment fade-up">Try to keep interactions simple and atomic (Observe SRP, re-use)</li>
 					</ul>
 				</section>
 				<section>
@@ -208,7 +215,7 @@ data class AccountDomain(
 						<li class="fragment fade-up">Composition of interactions when Use case is complex</li>
 						<li class="fragment fade-up">Implemention for a complex use case</li>
 						<li class="fragment fade-up">Not a clean archtiecture pattern (is an EEA pattern)</li>
-						<li class="fragment fade-up">Some might just call it an interactor</li>
+						<li class="fragment fade-up">Some might just call it a large interactor</li>
 					</ul>
 				</section>
 				<section>
@@ -217,6 +224,7 @@ data class AccountDomain(
 					<ul>
 						<li class="fragment fade-up">Service is a pattern that abstracts a subsystem behind an interface.</li>
 						<li class="fragment fade-up">A Convenient way to provide functionality that can be tapped into as needed.</li>
+						<li class="fragment fade-up">Make a service controller for android services.</li>
 						<!-- maybe split this into a separate slide-->
 						<li class="fragment fade-up"><b>Examples</b>: Web services, Android System services (WindowService), App services(android service).</li>
 					</ul>	
