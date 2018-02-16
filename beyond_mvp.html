@@ -20,7 +20,7 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
-
+		
 	</head>
 	<body>
 		<div class="reveal">
@@ -39,12 +39,46 @@
 				</section>
 				<!-- page 2 -->
 				<section>
-					<h2>So we have settled on a great UI architecture ...</h2>
-					<span class="fragment fade-up">MVP ... </span>
-					<span class="fragment fade-up">MVC ... </span>
-					<span class="fragment fade-up">MVVM ... </span>
-					<span class="fragment fade-up">MVI ...</span>
-					<p class="fragment fade-up">What do they all have in common?</p>
+					<section>
+						<h2>So we have settled on a great UI architecture ...</h2>
+						<span class="fragment fade-up">MVP ... </span>
+						<span class="fragment fade-up">MVC ... </span>
+						<span class="fragment fade-up">MVVM ... </span>
+						<span class="fragment fade-up">MVI ...</span>
+						<p class="fragment fade-up">What do they all have in common?</p>
+					</section>
+					<section style="font-size:18px;">
+						<h3>UI Architectures</h3>
+						<ul>
+							<li><a href="https://martinfowler.com/eaaDev/uiArchs.html" target="_blank">Martin Fowler definition of UI Architecture</a></li>
+							<li>Wikipedia: 
+								<a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter" target="_blank">MVP</a>, 
+								<a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel" target="_blank">MVVM</a>,
+								<a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller" target="_blank">MVC</a>
+							</li>
+							<li>MVP: Martin Fowler <a href="https://martinfowler.com/eaaDev/SupervisingPresenter.html" target="_blank">Supervising Presenter</a> &amp; 
+								<a href="https://martinfowler.com/eaaDev/PassiveScreen.html" target="_blank">Passive View</a>,
+								<a href="https://medium.com/@cervonefrancesco/model-view-presenter-android-guidelines-94970b430ddf" target="_blank">Some guidelines</a>,
+								<a href="https://github.com/googlesamples/android-architecture/tree/todo-mvp-clean" target="_blank">Android architecture sample</a>
+							</li>
+							<li><a href="https://blog.novatec-gmbh.de/mvi-in-android/" target="_blank">A simple one page MVI overview</a></li>
+							<li>Hannes Dorfmann MVI series: 
+								<a href="http://hannesdorfmann.com/android/mosby3-mvi-1" target="_blank">1</a>, 
+								<a href="http://hannesdorfmann.com/android/mosby3-mvi-2" target="_blank">2</a>,
+								<a href="http://hannesdorfmann.com/android/mosby3-mvi-3" target="_blank">3</a>,
+								<a href="http://hannesdorfmann.com/android/mosby3-mvi-4" target="_blank">4</a>,
+								<a href="http://hannesdorfmann.com/android/mosby3-mvi-5" target="_blank">5</a>,
+								<a href="http://hannesdorfmann.com/android/mosby3-mvi-6" target="_blank">6</a>,
+								<a href="http://hannesdorfmann.com/android/mosby3-mvi-7" target="_blank">7</a>
+							</li>
+							<li>Realm Academy: 
+								<a href="https://academy.realm.io/posts/mvc-vs-mvp-vs-mvvm-vs-mvi-mobilization-moskala/" target="_blank">M* comparison</a>
+							</li>
+							<li>Others: 
+								<a href="https://github.com/strongself/The-Book-of-VIPER/tree/master/english" target="_blank">VIPER</a>, 
+								<a href="https://github.com/uber/RIBs/wiki" target="_blank">RIB</a></li>
+						</ul>
+					</section>
 				</section>
 				<!-- page 3 -->
 				<section>
