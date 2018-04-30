@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section><h1>Running tensorflow on Docker</h1></section>
+				<section>
+					<h2>Why?</h2>
+					<ul>
+					<li class="fragment fade-up">Keep my code working on my local device. (Easier to come back to later).</li>
+					<li class="fragment fade-up">Potential to run the docker image on a cloud server (later)</li>
+					<li class="fragment fade-up">Structure code between multiple files</li>
+					<li class="fragment fade-up">Can use git for source control</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Install Docker</h2>
+					<ul>
+						<li class="fragment fade-up"><p>Install docker for your platform </p><p><a href="https://docs.docker.com/install/">https://docs.docker.com/install/</a></p></li>
+						<li class="fragment fade-up">Start docker</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Tensorflow Image</h2>
+					Open terminal
+					<ul>
+						<li class="fragment fade-up">Run Image: <pre>docker run -it tensorflow/tensorflow</pre></li>
+						<li class="fragment fade-up">Run bash shell :<pre>docker run -it tensorflow/tensorflow bash</pre></li>
+						<li class="fragment fade-up">Bash w. mapped directory:<pre>docker run -v '//local/dir://mapped/dir' -it tensorflow/tensorflow bash</pre></li>
+					</ul>
+				</section>
+				<section>
+					<h2>Install <code>python-tk</code></h2>
+					<p>Lots of the examples in the crash course depend on <code>python-tk</code> which is not on the docker image</p>
+					<pre>apt-get update &amp;&amp;\<br/>  apt-get install tk-dev python-tk &amp;&amp;\<br/>  rm -r /var/lib/apt/lists/*</pre>
+				</section>
+				<section>
+					<h2>Plotting to PDF</h2>
+					<p>Matplotlib has facility to print to PDF</p>
+					<pre><code data-trim data-noescape>
+import matplotlib
+matplotlib.use('Agg') # dont use windows
+from matplotlib.backends.backend_pdf import PdfPages
+def multi_page(filename, figs=None, dpi=200):
+	pp = PdfPages(filename)
+	if figs is None:
+		figs = [plt.figure(n) for n in plt.get_fignums()]
+	for fig in figs:
+		fig.savefig(pp, format='pdf', bbox_inches='tight', fig_size=(10, 8))
+	pp.close()
+					</code></pre>
+					then to use it
+					<pre><code data-trim data-noescape></code>
+from plotting_pdf import multi_page
+...
+multi_page("/tf/report.pdf") # save to mapped folder
+				</code></pre>
+				</section>
+				<section>
+					<h2>Thanks</h2>
+					<ul>
+						<li>Repo: <a href="https://github.com/sentinelweb/tensorflow_learn">https://github.com/sentinelweb/tensorflow_learn</a></li>
+					</ul>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
