@@ -1,3 +1,15 @@
-# reveal.js [![Build Status](https://travis-ci.org/hakimel/reveal.js.svg?branch=master)](https://travis-ci.org/hakimel/reveal.js) <a href="https://slides.com?ref=github"><img src="https://s3.amazonaws.com/static.slid.es/images/slides-github-banner-320x40.png?1" alt="Slides" width="160" height="20"></a>
+# Presentations using reveal.js
 
 My slides for various presentation created with http://revealjs.com/.
+
+# Beyond MVP
+
+This presentation discusses architectural patterns fro building a robust model on Android
+
+https://sentinelweb.github.io/presentations-reveal/beyond_mvp.html#/
+
+# RUNNING TENSORFLOW ON DOCKER
+
+A small presentation for the GDG Cloud Tensorflow meetup - explains running tensorflow examples using Docker
+
+https://sentinelweb.github.io/presentations-reveal/tensorflow_crash_course_on_docker.html
