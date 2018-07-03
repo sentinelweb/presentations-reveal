@@ -6,10 +6,10 @@ My slides for various presentation created with http://revealjs.com/.
 
 This presentation discusses architectural patterns fro building a robust model on Android
 
-https://sentinelweb.github.io/reveal.js/beyond_mvp.html#/
+https://sentinelweb.github.io/presentations-reveal/beyond_mvp.html#/
 
 # RUNNING TENSORFLOW ON DOCKER
 
 A small presentation for the GDG Cloud Tensorflow meetup - explains running tensorflow examples using Docker
 
-https://sentinelweb.github.io/reveal.js/tensorflow_crash_course_on_docker.html
+https://sentinelweb.github.io/presentations-reveal/tensorflow_crash_course_on_docker.html
