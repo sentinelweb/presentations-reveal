@@ -8,10 +8,11 @@
 	<title>Client side tensorflow </title>
 
 	<link rel="stylesheet" href="css/reveal.css">
-	<link rel="stylesheet" href="css/theme/moon.css">
+	<link rel="stylesheet" href="css/theme/league.css">
 
 	<!-- Theme used for syntax highlighting of code -->
 	<link rel="stylesheet" href="lib/css/zenburn.css">
+	<link rel="stylesheet" href="tensorflow_client.css">
 
 	<!-- Printing and PDF exports -->
 	<script>
@@ -21,7 +22,9 @@
 		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
 		document.getElementsByTagName('head')[0].appendChild(link);
 	</script>
-
+	<style>
+		
+	</style>
 </head>
 
 <body>
@@ -95,22 +98,17 @@
 			</section>
 			<section>
 				<h2>Tensorflow API - Basics</h2>
-
-			</section>
-			<section>
-				<h2>Tensorflow API</h2>
 				<ul>
-					<li class="fragment fade-up">A set of numerical computation APIs that builds a graph</li>
-					<li class="fragment fade-up">Graph gets built then executed on hardware, CPU, GPU, TPU</li>
-					<li class="fragment fade-up">Languages Python, Java (Kotlin), Go, C, JavaScript (New), Swift (Early stage)</li>
-					<li class="fragment fade-up">Python is the most advanced - others are at various stages</li>
+					<li class="fragment fade-up">The graph is is executed in a <code>tf.Session()</code></li>
+					<li class="fragment fade-up">TODO</li>
 				</ul>
 			</section>
 			<section>
 				<h2>Tensorflow sub-projects</h2>
 				<ul>
-					<li class="fragment fade-up">Tensorflow.js : Javascript bindng for tensorflow</li>
+					<li class="fragment fade-up"><span class="leader">Tensorflow.js</span> : Javascript bindng for tensorflow</li>
 					<li class="fragment fade-up">Tensorflow Lite : Optimised &amp; efficient runtime for embedded / mobile devices</li>
+					<li class="fragment fade-up">Tensorflow Mobile : TFLite's predecessor - less optimised but has more TF operations</li>
 					<li class="fragment fade-up">Hub : Collaboration library to share tensorflow modules &amp; components</li>
 					<li class="fragment fade-up">TFX : Production utilites ad optimisation</li>
 					<li class="fragment fade-up">Magenta : Art and music experimentation projects</li>
@@ -126,12 +124,12 @@
 			<section>
 				<h2>Tensorflow Lite (TFLite)</h2>
 				<ul>
-					<li>Optimised runtime for tensorflow models (Mobile/embedded)</li>
-					<li>Model is converted to .lite format using a tool called
+					<li class="fragment fade-up">Optimised runtime for tensorflow models (Mobile/embedded)</li>
+					<li class="fragment fade-up">Model is converted to .lite format using a tool called
 						<code>toco</code>
-					</li>
-					<li>Lite format uses FlatBuffers - memory mapped for efficiency</li>
-					<li>Only supports a subset of Tensorflow operations (No transfer learning)</li>
+					</li class="fragment fade-up">
+					<li class="fragment fade-up">Lite format uses FlatBuffers - memory mapped for efficiency</li>
+					<li class="fragment fade-up">Only supports a subset of Tensorflow operations (No transfer learning)</li>
 				</ul>
 			</section>
 			<section>
@@ -174,22 +172,22 @@ float* output = interpreter-&gt;typed_output_tensor&lt;float&gt;(0);// probabili
 			<section>
 				<h2>Tensorflow.js</h2>
 				<ul>
-					<li>Javascript binding for the Tensorflow C library</li>
-					<li>Works in browser &amp; NPM</li>
-					<li>Can do transfer learning / retraining</li>
-					<li>Can use WebGL (Linux only ATM)</li>
-					<li>Can use browser sensor data directly to retrain models</li>
-					<li>Not as fast as native implementations - gets slower with larger models</li>
-					<li>Exporting models in development progress</li>
+					<li class="fragment fade-up">Javascript binding for the Tensorflow C library</li>
+					<li class="fragment fade-up">Works in browser &amp; NPM</li>
+					<li class="fragment fade-up">Can do transfer learning / retraining</li>
+					<li class="fragment fade-up">Can use WebGL (Linux only ATM)</li>
+					<li class="fragment fade-up">Can use browser sensor data directly to retrain models</li>
+					<li class="fragment fade-up">Not as fast as native implementations - gets slower with larger models</li>
+					<li class="fragment fade-up">Exporting models in development progress</li>
 				</ul>
 			</section>
 			<section>
 				<h2>Tensorflow.js - installation</h2>
 				<ul>
-					<li>
+					<li class="fragment fade-up">
 						<code>yarn add @tensorflow/tfjs</code>
 					</li>
-					<li>
+					<li class="fragment fade-up">
 						<code>node getting-started.js</code> &lt;-- whatever file
 					</li>
 				</ul>
@@ -197,43 +195,41 @@ float* output = interpreter-&gt;typed_output_tensor&lt;float&gt;(0);// probabili
 			<section>
 				<h2>Client side ML - Advantages</h2>
 				<ul>
-					<li>Free compute power (for running NN and feature processing)</li>
-					<li>Free Real-time high definition data</li>
-					<li>Low latency</li>
-					<li>Access to onboard devices and hardware (camera, sensors, mic)</li>
-					<li>Customer data security - data doesnt leave device</li>
-					<li>for TF.js can use device input for retraining</li>
+					<li class="fragment fade-up">Free compute power (for running NN and feature processing)</li>
+					<li class="fragment fade-up">Free Real-time high definition data</li>
+					<li class="fragment fade-up">Low latency</li>
+					<li class="fragment fade-up">Access to onboard devices and hardware (camera, sensors, mic)</li>
+					<li class="fragment fade-up">Customer data security - data doesnt leave device</li>
+					<li class="fragment fade-up">for TF.js can use device input for retraining</li>
 				</ul>
 			</section>
 			<section>
 				<h2>Client side ML - Disdvantages</h2>
 				<ul>
-					<li>Power usage can be high</li>
-					<li>Need to lots of model optimisation</li>
+					<li class="fragment fade-up">Power usage can be high</li>
+					<li class="fragment fade-up">Need to lots of model optimisation</li>
 				</ul>
 			</section>
 			<section>
-				<h2>Usages/ideas</h2>
+				<h2>Usages/ideas .. toil reduction</h2>
 				<ul>
-					<li>UI customisation for the user</li>
-					<li>Image recognition - read tickets &amp; timetable boards (crowdsource rt data)</li>
-					<li>Help assistant - NLP</li>
+					<li class="fragment fade-up">UI customisation for the user</li>
+					<li class="fragment fade-up">Image recognition - read tickets &amp; timetable boards (crowdsource rt data)</li>
+					<li class="fragment fade-up">Help assistant - NLP</li>
 				</ul>
 			</section>
 			<section>
 				<h2>Learning utilities</h2>
 				<ul>
-					<li>Machine learning crash course :<br/>
+					<li> class="fragment fade-up"Machine learning crash course :<br/>
 						<a href="https://developers.google.com/machine-learning/crash-course/">https://developers.google.com/machine-learning/crash-course/</a></li>
-					<li>Tensorflow for poets codelabs :<br/>
+					<li class="fragment fade-up">Tensorflow for poets codelabs :<br/>
 						<a href="https://codelabs.developers.google.com/?cat=TensorFlow">https://codelabs.developers.google.com/?cat=TensorFlow</a></li>
-					<li>Most are done in Robs learning repo:
+					<li class="fragment fade-up">Most are done in Robs learning repo:
 							<a href="https://github.com/sentinelweb/tensorflow_learn">https://github.com/sentinelweb/tensorflow_learn</a>
 					</li>
 				</ul>
 			</section>
-			<!--<section>QR code</section>-->
-			<!-- looping -->
 		</div>
 	</div>
 
@@ -259,321 +255,3 @@ float* output = interpreter-&gt;typed_output_tensor&lt;float&gt;(0);// probabili
 </body>
 
 </html>
-
-<section style="font-size:18px;">
-	<h3>UI Architectures</h3>
-	<ul>
-		<li>
-			<a href="https://martinfowler.com/eaaDev/uiArchs.html" target="_blank">MF definition of UI Architecture</a>
-		</li>
-		<li>Wikipedia:
-			<a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter" target="_blank">MVP</a>,
-			<a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel" target="_blank">MVVM</a>,
-			<a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller" target="_blank">MVC</a>
-		</li>
-		<li>
-			<b>MVP</b>:
-			<a href="https://martinfowler.com/eaaDev/SupervisingPresenter.html" target="_blank">MF Supervising Presenter</a> &amp;
-			<a href="https://martinfowler.com/eaaDev/PassiveScreen.html" target="_blank">MF Passive View</a>,
-			<a href="https://medium.com/upday-devs/android-architecture-patterns-part-2-model-view-presenter-8a6faaae14a5" target="_blank">FM Overview</a>,
-			<a href="https://medium.com/@cervonefrancesco/model-view-presenter-android-guidelines-94970b430ddf" target="_blank">More guidelines</a>,
-			<a href="https://github.com/googlesamples/android-architecture/tree/todo-mvp-clean" target="_blank">Android architecture</a>
-		</li>
-		<li>
-			<b>MVVM</b>:
-			<a href="https://medium.com/upday-devs/android-architecture-patterns-part-3-model-view-viewmodel-e7eeee76b73b" target="_blank">FM Overview</a>,
-			<a href="https://github.com/googlesamples/android-architecture/tree/todo-mvvm-live" target="_blank">Android architecture</a>
-		</li>
-		<li>
-			<b>MVC</b>:
-			<a href="https://medium.com/upday-devs/android-architecture-patterns-part-1-model-view-controller-3baecef5f2b6" target="_blank">FM Overview</a>
-		</li>
-		<li>
-			<b>MVI</b>:
-			<a href="https://blog.novatec-gmbh.de/mvi-in-android/" target="_blank">Simple Overview</a>, HD MVI :
-			<a href="http://hannesdorfmann.com/android/mosby3-mvi-1" target="_blank">1</a>,
-			<a href="http://hannesdorfmann.com/android/mosby3-mvi-2" target="_blank">2</a>,
-			<a href="http://hannesdorfmann.com/android/mosby3-mvi-3" target="_blank">3</a>,
-			<a href="http://hannesdorfmann.com/android/mosby3-mvi-4" target="_blank">4</a>,
-			<a href="http://hannesdorfmann.com/android/mosby3-mvi-5" target="_blank">5</a>,
-			<a href="http://hannesdorfmann.com/android/mosby3-mvi-6" target="_blank">6</a>,
-			<a href="http://hannesdorfmann.com/android/mosby3-mvi-7" target="_blank">7</a>
-		</li>
-		<li>Realm Academy:
-			<a href="https://academy.realm.io/posts/mvc-vs-mvp-vs-mvvm-vs-mvi-mobilization-moskala/" target="_blank">M* comparison</a>
-		</li>
-		<li>Others:
-			<a href="https://github.com/strongself/The-Book-of-VIPER/tree/master/english" target="_blank">VIPER</a>,
-			<a href="https://github.com/uber/RIBs/wiki" target="_blank">RIB</a>
-		</li>
-	</ul>
-	<p>
-		<small>
-			MF =
-			<a href="https://martinfowler.com/" target="_blank">Martin Fowler</a>, FM =
-			<a href="https://medium.com/@florina.muntenescu" target="_blank">Florina Muntenescu</a>, HD =
-			<a href="http://hannesdorfmann.com/" target="_blank">Hans Dorfmann</a>,
-		</small>
-	</p>
-</section>
-</section>
-<!-- page 3 -->
-<section>
-	<h2>The
-		<i>Model</i>
-	</h2>
-	<p>
-		<blockquote cite="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">
-			<span class="fragment fade-up">&ldquo;The model is the central component of the pattern. </span>
-			<span class="fragment fade-up">
-				<br/>
-				<br/>It expresses the application's behavior in terms of the problem domain, independent of the user interface. </span>
-			<span class="fragment fade-up">
-				<br/>
-				<br/>It directly manages the data, logic and rules of the application.&rdquo;</span>
-		</blockquote>
-	</p>
-</section>
-<!-- page 4 -->
-<section>
-	<p>Consists of ...</p>
-	<ul>
-		<li class="fragment fade-up">Domain data objects</li>
-		<li class="fragment fade-up">Use cases</li>
-		<li class="fragment fade-up">and the
-			<i>implementation</i>
-		</li>
-		<p class="fragment fade-up">
-			<small>(just a small thing)</small>
-	</ul>
-</section>
-<section>
-	<p>How to structure the model ?</p>
-	<div class="fragment fade-up">
-		<small>enter</small>
-		<h2>The Clean Architecture</h2>
-	</div>
-</section>
-<section>
-	<section>
-		<h3>The Clean Architecture</h3>
-		<ul>
-			<li class="fragment fade-up">Strong dependency relationships</li>
-			<li class="fragment fade-up">Separation of concerns</li>
-			<li class="fragment fade-up">Hard sub-system boundaries (Interfaces)</li>
-			<li class="fragment fade-up">Decoupled sub-systems</li>
-			<p class="fragment fade-up">
-				<img src="https://media.giphy.com/media/3oEduItaZJKjzY6Kuk/giphy.gif" style="width:200px;height:200px;float:right;border:0px;"
-				/>
-			</p>
-		</ul>
-	</section>
-	<section>
-		<h3>The Clean Architecture (notes)</h3>
-		<ul>
-			<li>
-				<a href="https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html" target="_blank">Uncle bob blog post</a>
-			</li>
-			<li>
-				<a href="https://crosp.net/blog/software-architecture/clean-architecture-part-2-the-clean-architecture/" target="_blank">crosp.net</a>
-			</li>
-			<li>
-				<a href="https://softwareengineering.stackexchange.com/questions/357052/clean-architecture-use-case-containing-the-presenter-or-returning-data"
-				 target="_blank">Nice SO post</a>
-			</li>
-		</ul>
-	</section>
-</section>
-<!-- diagram ??-->
-<section>
-	<section>
-		<h3>Domain</h3>
-		<ul>
-			<li class="fragment fade-up">Your business model</li>
-			<li class="fragment fade-up">Represents real world items</li>
-			<li class="fragment fade-up">Only dependencies are other domain objects</li>
-			<span></span>
-			<li class="fragment fade-up">Domain driven design (DDD) is a whole area
-				<ul>
-					<li class="fragment fade-up">lots of Clean Architecture overlap</li>
-				</ul>
-			</li>
-		</ul>
-	</section>
-	<section>
-		<h3>Domain (notes)</h3>
-		<ul>
-			<li>
-				<a href="https://en.wikipedia.org/wiki/Domain-driven_design" target="_blank">Wikipedia overview</a>
-			</li>
-			<li>
-				<a href="https://www.infoq.com/articles/ddd-in-practice" target="_blank">Long-ish writeup on DDD (InfoQ)</a>
-			</li>
-		</ul>
-	</section>
-</section>
-<section>
-	<h3>Domain - DO's and DONT's</h3>
-	<ul>
-		<li class="fragment fade-up">
-			<b>DO</b> Take the time to model your domain accurately and in detail (save refactoring later)</li>
-		<li class="fragment fade-up">
-			<b>DO</b> Make your domain objects immutable
-			<ul>
-				<li class="fragment fade-up">Mutate your domain objects in a use case</li>
-			</ul>
-		</li>
-		<li class="fragment fade-up">
-			<b>DONT</b> depend on any other part of your framework (even use cases, M* UI Layer, ...)</li>
-		<li class="fragment fade-up">
-			<b>DONT</b> depend on any part of others frameworks (DBs, Android, HTTP, DTOs, ...)</li>
-	</ul>
-</section>
-<section>
-	<h3>Domain - Example</h3>
-	<b>Problems?</b>
-	<pre><code data-trim data-noescape>
-data class AccountDomain(
-val id: Long?,
-val name: String,
-val type: AccountType,
-val balances: List<BalanceDomain>,
-val tranasactions: List<TransactionItemDomain> = listOf(),
-val colour: ColourDomain = ColourDomain.TRANSPARENT) {
-
-companion object {
-val NONE = AccountDomain(
-null, 
-"", 
-AccountType.INITIAL, 
-listOf())
-}
-}					</code></pre>
-</section>
-<!-- problems discussion id: bad - use server id (not a local one), Serialization/Parcelling, colour? UI? still domain data -->
-<section>
-	<h3>Use cases</h3>
-	<ul>
-		<li class="fragment fade-up">Simple interfaces that define business actions</li>
-		<li class="fragment fade-up">De-couple presentation/UI Architecture from the model</li>
-	</ul>
-</section>
-<section>
-	<h3>Some simple design-patterns to enforce decoupling</h3>
-	<ul>
-		<li class="fragment fade-up">Repository</li>
-		<li class="fragment fade-up">Mappers</li>
-		<li class="fragment fade-up">Interactors / Orchectrators</li>
-		<li class="fragment fade-up">Services</li>
-	</ul>
-</section>
-<section>
-	<h3>Repository</h3>
-	<blockquote class="fragment fade-up">Isolates domain objects from details of the datasource access code</blockquote>
-	<ul>
-		<li class="fragment fade-up">Provides CRUD operations at the domain level</li>
-		<li class="fragment fade-up">Encapsulates collections of domain objects</li>
-		<li class="fragment fade-up">Abstracts the datasource querying details from the use case / interactor</li>
-		<li class="fragment fade-up">Provide independence from the datasource</li>
-		<li class="fragment fade-up">Datasource might be anything: Database, File-based access, Properties</li>
-	</ul>
-</section>
-<section>
-	<h3>Repository - DO's</h3>
-	<ul>
-		<li class="fragment fade-up">Make 1 repository per datasource</li>
-		<li class="fragment fade-up">Use an interactor to access the repository</li>
-	</ul>
-</section>
-
-<section>
-	<h3>Repository - DONT's</h3>
-	<ul>
-		<li class="fragment fade-up">Some definitions put caching code in the repository</li>
-		<li class="fragment fade-up"> -&gt; Not a great idea - make an interactor to explicity cache data to the repository</li>
-		<li class="fragment fade-up">
-			<b>DONT</b> mix datasources into one repository (coupling)</li>
-	</ul>
-</section>
-<section>
-	<h3>Mappers</h3>
-	<blockquote>An object that sets up a communication between two independent objects.</blockquote>
-	<ul>
-		<li class="fragment fade-up">Decouple state objects from each other</li>
-		<li class="fragment fade-up">e.g. Map DTO &lt;-&gt; Domain, Db Entity &lt;-&gt; Domain</li>
-		<li class="fragment fade-up">Easy to break out sub-mappers to keep testing easy (e.g. collection fields)</li>
-	</ul>
-</section>
-<section>
-	<h3>Interactors</h3>
-	<blockquote>These are the classes which actually contain your business logic code &amp; implement Use-cases.</blockquote>
-	<ul>
-		<li class="fragment fade-up">Interacts with a sub-system from the model</li>
-		<li class="fragment fade-up">Implements a use case</li>
-		<li class="fragment fade-up">Try to keep interactions simple and atomic (Observe SRP, re-use)</li>
-	</ul>
-</section>
-<section>
-	<h3>Orchestrators</h3>
-	<blockquote>Coordinates multiple interactions to complete a comple task</blockquote>
-	<ul>
-		<li class="fragment fade-up">Composition of interactions when Use case is complex</li>
-		<li class="fragment fade-up">Implemention for a complex use case</li>
-		<li class="fragment fade-up">Not a clean archtiecture pattern (is an EEA pattern)</li>
-		<li class="fragment fade-up">Some might just call it a large interactor</li>
-	</ul>
-</section>
-<section>
-	<h3>Services</h3>
-	<blockquote>When an operation does not conceptually belong to any object. Following the natural contours of the problem, you can implement
-		these operations in services.</blockquote>
-	<ul>
-		<li class="fragment fade-up">Service is a pattern that abstracts a subsystem behind an interface.</li>
-		<li class="fragment fade-up">A Convenient way to provide functionality that can be tapped into as needed.</li>
-		<li class="fragment fade-up">Make a service controller for android services.</li>
-		<!-- maybe split this into a separate slide-->
-		<li class="fragment fade-up">
-			<b>Examples</b>: Web services, Android System services (WindowService), App services(android service).</li>
-	</ul>
-</section>
-<section>
-	<h3>DO's</h3>
-	<ul>
-		<li class="fragment fade-up">
-			<b>DO</b> Make everything testable and test everything</li>
-		<li class="fragment fade-up">
-			<b>DO</b> Use interfaces for all these patterns</li>
-	</ul>
-</section>
-<section>
-	<h3>DONT's</h3>
-	<ul>
-		<li class="fragment fade-up">
-			<b>DONT</b> - Couple your model to android classes</li>
-		<li class="fragment fade-up">
-			<b>DONT</b> - Mix patterns in the same class (violate SRP)</li>
-	</ul>
-</section>
-<section>
-	<h3>Thank you</h3>
-	<p>
-		<a href="https://twitter.com/sentinelwebtech" target="_blank">
-			<img src="https://marketing.twitter.com/content/dam/marketing-twitter/brand/logo.png" width="60" height="60" border="0" style="vertical-align:middle;border:0px;"
-			/>&nbsp; @Sentinelwebtech
-		</a>
-	</p>
-	<p>
-		<a href="https://github.com/sentinelweb" target="_blank">
-			<img src="https://assets-cdn.github.com/images/modules/logos_page/Octocat.png" width="60" height="60" border="0" style="vertical-align:middle;border:0px;"
-			/>&nbsp; Sentinelweb
-		</a>
-	</p>
-	<p style="float:left;">
-		<a href="http://www.thetrainlinejobs.com/" target="_blank" style="color:white;">
-			<svg viewBox="0 0 147.2 31.8" width="147px" height="31px" style="vertical-align:middle;">
-				<path fill="currentColor" d="M141.6 18.4c-.1-2.1-1.4-4.1-4.7-4.1-2.9 0-4.5 2.2-4.7 4.1h9.4zm5.3 6.8c-1.1 3.6-4.4 6.6-9.5 6.6-5.7 0-10.8-4.1-10.8-11.1 0-6.6 4.9-11 10.2-11 6.4 0 10.3 4.1 10.3 10.8 0 .8-.1 1.7-.1 1.7h-14.9c.1 2.8 2.5 4.7 5.2 4.7 2.6 0 4.1-1.3 4.7-3.2l4.9 1.5zm-36.3-6c0-2.4 1.4-4.3 3.9-4.3 2.7 0 3.9 1.8 3.9 4.1v12.1h5.6V18c0-4.6-2.4-8.3-7.5-8.3-2.2 0-4.7 1-6 3.1v-2.6H105V31h5.6V19.2zm-14.7-8.9h5.6v20.8h-5.6V10.3zM98.7 0c1.9 0 3.5 1.6 3.5 3.5s-1.5 3.4-3.5 3.4c-1.9 0-3.5-1.6-3.5-3.4 0-1.9 1.6-3.5 3.5-3.5M67.4 19.2c0-2.4 1.4-4.3 3.9-4.3 2.7 0 3.9 1.8 3.9 4.1v12.1h5.6V18c0-4.6-2.4-8.3-7.5-8.3-2.2 0-4.7 1-6 3.1v-2.6h-5.5V31h5.6V19.2zm-14.9-8.9h5.6v20.8h-5.6V10.3zM55.2 0c1.9 0 3.5 1.6 3.5 3.5s-1.5 3.4-3.5 3.4c-1.9 0-3.5-1.6-3.5-3.4.1-1.9 1.6-3.5 3.5-3.5m-16 27.6c-1.8 0-2.7-1.2-2.7-2.4 0-1.6 1.1-2.4 2.6-2.6l4.7-.7v.9c0 3.6-2.2 4.8-4.6 4.8m-8.3-2.1c0 3.3 2.7 6.3 7.2 6.3 3.1 0 5.1-1.4 6.1-3.1 0 .8.1 1.9.2 2.5h5.2c-.1-.7-.3-2.2-.3-3.3V17.6c0-4.2-2.5-7.9-9.1-7.9-5.6 0-8.6 3.6-8.9 6.9l5 1.1c.2-1.8 1.5-3.4 4-3.4 2.4 0 3.5 1.2 3.5 2.7 0 .7-.4 1.3-1.6 1.5l-5.1.8c-3.5.4-6.2 2.5-6.2 6.2m-1.7-9.6c-.6-.1-1.2-.2-1.7-.2-2.9 0-5.4 1.4-5.4 5.9v9.5h-5.6V10.3H22v3.1c1.3-2.8 4.1-3.3 5.9-3.3.5 0 .9 0 1.3.1v5.7zm-15.8-5.3v4.9H6.9c.6-.3 1.1-.8 1.6-1.2 1-1 1.7-2.2 2.2-3.7h2.7zM1.6 15.5H0v-4.9h9.1c-.6 1.5-1.5 2.7-2.8 3.6-1.2.8-2.8 1.2-4.7 1.3m10.1 11c.7 0 1.4-.1 1.7-.2V31c-.5.2-1.5.5-3.1.5-4 0-6.5-2.4-6.5-6.4v-8.3h5.5v7.4c0 1.7.8 2.3 2.4 2.3M9.3 9.3V4.4h-5v2.9c0 .8-.2 1.5-.6 2h5.6zm83.5 17.2h-1c-1.6 0-2.4-.6-2.4-2.4V.9h-5.5v24.2c0 4 2.5 6.4 6.5 6.4 1 0 1.8-.1 2.4-.3v-4.7z"></path>
-			</svg>
-			<span style="vertical-align:baseline;color:#888; font-size:12px;">(nice place to work)</span>
-		</a>
-	</p>
-</section>
