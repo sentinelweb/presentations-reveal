@@ -22,9 +22,6 @@
 		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
 		document.getElementsByTagName('head')[0].appendChild(link);
 	</script>
-	<style>
-		
-	</style>
 </head>
 
 <body>
@@ -33,7 +30,8 @@
 			<!-- make QR code : https://sentinelweb.github.io/reveal.js/beyond_mvp.html -->
 			<!-- page 1 -->
 			<section>
-				<h2>Client side tensorflow</h2>
+				<h1>Client side tensorflow</h1>
+				<img src="tensorflow_client_images/tensorflow.png" />
 			</section>
 			<!-- page 2 -->
 			<section>
@@ -41,6 +39,7 @@
 				<ul>
 					<li class="fragment fade-up">Jargon buster</li>
 					<li class="fragment fade-up">20,000 mile high overview of tensorflow Ecosystem</li>
+					<li class="fragment fade-up">Training a model using TFPoets codelab scripts</li>
 					<li class="fragment fade-up">TFLite model deployment on Android &amp; iOS</li>
 					<li class="fragment fade-up">Tensorflow.js</li>
 					<li class="fragment fade-up">Client side pros &amp; cons</li>
@@ -54,32 +53,28 @@
 			<section>
 				<h2>Neural network</h2>
 				<ul>
-					<li class="fragment fade-up">Transforms a set of inputs (features) into outputs (classifications)</li>
-					<li class="fragment fade-up">Use a dataset to train and measure classification accuracy (RMS)</li>
-					<li class="fragment fade-up">Consists of N-layers which can be a weight, and an activation function (switch).</li>
-					<li class="fragment fade-up">During training the error is propagated backwards to refine weights</li>
+					<li>Transforms a set of inputs (features) into outputs (classifications)</li>
+					<li class="fragment fade-up">Use a dataset to train - then measure classification accuracy (RMS)
+						<aside class="notes">
+							Consists of N-layers which can be a weight, and an activation function (switch).
+							<br/> During training the error is propagated backwards to refine weights
+						</aside>
+					</li>
 					<li class="fragment fade-up">Produces a
 						<i>Model</i> which can used to classify input features</li>
 				</ul>
 			</section>
 			<section>
-				<h2>Deep learning / Deep Neural network</h2>
-				<ul>
-					<li class="fragment fade-up">A neural net with many layers</li>
-					<li class="fragment fade-up">Produces more accurate results but is more expensive</li>
-				</ul>
-			</section>
-			<section>
 				<h2>Transfer learning</h2>
 				<ul>
-					<li class="fragment fade-up">A pre-trained neural net which can be refined by just training the final layers</li>
-					<li class="fragment fade-up">Requires less computationally expensive and less data to train</li>
+					<li>A pre-trained neural net which can be refined by just training the final layers</li>
+					<li class="fragment fade-up">Requires less computation and less data to train</li>
 				</ul>
 			</section>
 			<section>
 				<h2>MobileNet</h2>
 				<ul>
-					<li class="fragment fade-up">A set of image recognition models produced by google</li>
+					<li>A set of image recognition models produced by google</li>
 					<li class="fragment fade-up">Optimised for efficiency on mobile</li>
 					<li class="fragment fade-up">Can be retrained for a specific purpose using transfer learning</li>
 				</ul>
@@ -90,36 +85,100 @@
 			<section>
 				<h2>Tensorflow API</h2>
 				<ul>
-					<li class="fragment fade-up">A set of numerical computation APIs that builds a graph</li>
+					<li>A numerical computation dataflow API that builds a graph</li>
 					<li class="fragment fade-up">Graph gets built then executed on hardware, CPU, GPU, TPU</li>
-					<li class="fragment fade-up">Languages Python, Java (Kotlin), Go, C, JavaScript (New), Swift (Early stage)</li>
-					<li class="fragment fade-up">Python is the most advanced - others are at various stages</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Tensorflow Languages</h2>
+				<ul>
+					<li class="fragment fade-up">Python : most advanced</li>
+					<li class="fragment fade-up">Java (Kotlin)</li>
+					<li class="fragment fade-up">JavaScript (New) - Tensorflow.js</li>
+					<li class="fragment fade-up">Swift (Early stage)</li>
+					<li class="fragment fade-up">Go, C</li>
 				</ul>
 			</section>
 			<section>
 				<h2>Tensorflow API - Basics</h2>
 				<ul>
-					<li class="fragment fade-up">The graph is is executed in a <code>tf.Session()</code></li>
-					<li class="fragment fade-up">TODO</li>
+					<li>The graph is is executed in a
+						<code>tf.Session()</code>
+					</li>
+					<li class="fragment fade-up">Each tensorflow command has input and output data</li>
+					<li class="fragment fade-up">The session holds the state</li>
+					<li class="fragment fade-up">The graph execution can be parallelized where possible</li>
 				</ul>
 			</section>
 			<section>
 				<h2>Tensorflow sub-projects</h2>
 				<ul>
-					<li class="fragment fade-up"><span class="leader">Tensorflow.js</span> : Javascript bindng for tensorflow</li>
-					<li class="fragment fade-up">Tensorflow Lite : Optimised &amp; efficient runtime for embedded / mobile devices</li>
-					<li class="fragment fade-up">Tensorflow Mobile : TFLite's predecessor - less optimised but has more TF operations</li>
-					<li class="fragment fade-up">Hub : Collaboration library to share tensorflow modules &amp; components</li>
-					<li class="fragment fade-up">TFX : Production utilites ad optimisation</li>
-					<li class="fragment fade-up">Magenta : Art and music experimentation projects</li>
+					<li class="fragment fade-up">
+						<span class="leader">Tensorflow.js</span> : Javascript bindng for tensorflow</li>
+					<li class="fragment fade-up">
+						<span class="leader">Tensorflow Lite</span> : Optimised &amp; efficient runtime for embedded / mobile devices</li>
+					<li class="fragment fade-up">
+						<span class="leader">Tensorflow Mobile</span> : TFLite's predecessor - less optimised but has more TF operations</li>
+					<li class="fragment fade-up">
+						<span class="leader">Hub</span> : Collaboration library to share tensorflow modules &amp; components</li>
+					<li class="fragment fade-up">
+						<span class="leader">TFX</span> : Production utilites and optimisation</li>
+					<li class="fragment fade-up">
+						<span class="leader">Magenta</span> : Art and music experimentation projects</li>
 				</ul>
 			</section>
 			<section>
-				<h2>Retraining a model</h2>
+				<h2>Training a model using TFPoets</h2>
+			</section>
+			<section>
+				<h2>Retraining - overview</h2>
 				<ul>
-					<li class="fragment fade-up">Use MobileNet Model as a base to perform transfer learning on a set of images</li>
-					<li class="fragment fade-up">Can use Tensorboard to monitor progress and debug graph</li>
+					<li class="fragment fade-up">Use MobileNet model as a base to perform transfer learning on a set of images</li>
+					<li class="fragment fade-up">Use Tensorboard webapp to monitor progress and debug graph</li>
+					<li class="fragment fade-up">Produces a model which can be used for classification</li>
 				</ul>
+				<aside class="notes">
+					Mention That we will build a "TrainSpotter" app
+				</aside>
+			</section>
+			<section>
+				<h2>Retraining - Dataset</h2>
+				<ul>
+					<li class="fragment fade-up">Collect lots of images (best == 1000s) into a directory</li>
+					<li class="fragment fade-up">Example collected around 100 images from google of Trains</li>
+					<li class="fragment fade-up">Labels : TGV, uk commuter, steam, freight, thomas the tank engine</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Retraining - Run</h2>
+				<ul>
+					<li class="fragment fade-up">Execute retrain script in tensorflow for poets</li>
+					<li class="fragment fade-up">More steps give a better model (takes longer) 500 &lt; steps &lt; 5000+</li>
+					<li class="fragment fade-up">Monitor prgress with tensorboard</li>
+				</ul>
+			</section>
+			<section>
+				<h3>Tensorboard - initial</h3>
+				<img src="tensorflow_client_images/tensorboard_accuracy_1.png" />
+			</section>
+			<section>
+				<h3>Tensorboard - in progress</h3>
+				<img src="tensorflow_client_images/tensorboard_accuracy_2.png" />
+			</section>
+			<section>
+				<h3>Tensorboard - final</h3>
+				<img src="tensorflow_client_images/tensorboard_accuracy_3.png" />
+			</section>
+			<section>
+				<h3>Tensorboard - graph</h3>
+				<img src="tensorflow_client_images/tensorboard_graph_1.png" />
+			</section>
+			<section>
+				<h3>Tensorboard - drill down</h3>
+				<img src="tensorflow_client_images/tensorboard_graph_2.png" />
+			</section>
+			<section>
+				<h2>Deploying on mobile</h2>
 			</section>
 			<section>
 				<h2>Tensorflow Lite (TFLite)</h2>
@@ -144,13 +203,22 @@ imgData.order(ByteOrder.nativeOrder());
 labelProbArray = new float[1][labelList.size()];
 
 // on image received
-convertBitmapToByteBuffer(bitmap); // converts byte format
-tflite.run(imgData, labelProbArray); // probabilities in array
+convertBitmapToByteBuffer(bitmap);
+tflite.run(imgData, labelProbArray); 
 					</code></pre>
+				<aside class="notes">
+					<ul>
+						<li>Load model &amp; Create an interpreter </li>
+						<li>Load the list of labels</li>
+						<li>Allocate Bytebuffer to send data to interpreter</li>
+						<li>When image is captured - convert bytes to native format and pass to TFLite</li>
+						<li>Label probability array has the probabilty of each label</li>
+					</ul>
+				</aside>
 			</section>
-			<section>
+			<section style="max-width:100%;width:1000px">
 				<h2>TFLite - Integration iOS</h2>
-				<pre><code style="max-height:500px;max-width:1000px;">
+				<pre style="height:800px;width:1000px;"><code style="max-height:800px;width:1000px">
 std::vector&lt;std::string&gt; labels;
 std::unique_ptr&lt;tflite::FlatBufferModel&gt; model;
 tflite::ops::builtin::BuiltinOpResolver resolver;
@@ -159,21 +227,44 @@ std::unique_ptr&lt;tflite::Interpreter&gt; interpreter;
 // loading model and configure tflite instance
 NSString* graph_path = FilePathForResourceName(model_file_name, model_file_type);
 model = tflite::FlatBufferModel::BuildFromFile([graph_path UTF8String]);
+LoadLabels(labels_file_name, labels_file_type, &amp;labels);
 tflite::ops::builtin::BuiltinOpResolver resolver;
-LoadLabels(labels_file_name, labels_file_type, &labels);
-tflite::InterpreterBuilder(*model, resolver)(&interpreter);
+tflite::InterpreterBuilder(*model, resolver)(&amp;interpreter);
 
-// on image capture
-[self inputImageToModel:image]; // converts byte format
+// on image received
+[self inputImageToModel:image]; 
 interpreter-&gt;Invoke() 
-float* output = interpreter-&gt;typed_output_tensor&lt;float&gt;(0);// probabilities in array
+float* probs = interpreter-&gt;typed_output_tensor&lt;float&gt;(0);
 					</code></pre>
+				<aside class="notes">
+					<ul>
+						<li>Apologise for Objective C - no swift example</li>
+						<li>Load model to <code>FlatBufferModel</code></li>
+						<li>Load the list of labels</li>
+						<li>Initialise TFLite interpreter with model</li>
+						<li>When image is captured - convert bytes to native format</li>
+						<li>Invoke TFLite interpreter</li>
+						<li>Get probabilities by calling interpreter-&gt;typed_output_tensor</li>
+					</ul>
+				</aside>
+			</section>
+			<section>
+				<h3>Trainspotter - TGV</h3>
+				<img src="tensorflow_client_images/app_1.png" />
+			</section>
+			<section>
+				<h3>Trainspotter - Thomas</h3>
+				<img src="tensorflow_client_images/app_2.png" />
+			</section>
+			<section>
+				<h3>Trainspotter - Hugh</h3>
+				<img src="tensorflow_client_images/app_3.png" />
 			</section>
 			<section>
 				<h2>Tensorflow.js</h2>
 				<ul>
 					<li class="fragment fade-up">Javascript binding for the Tensorflow C library</li>
-					<li class="fragment fade-up">Works in browser &amp; NPM</li>
+					<li class="fragment fade-up">Works in browser &amp; NodeJS</li>
 					<li class="fragment fade-up">Can do transfer learning / retraining</li>
 					<li class="fragment fade-up">Can use WebGL (Linux only ATM)</li>
 					<li class="fragment fade-up">Can use browser sensor data directly to retrain models</li>
@@ -182,7 +273,7 @@ float* output = interpreter-&gt;typed_output_tensor&lt;float&gt;(0);// probabili
 				</ul>
 			</section>
 			<section>
-				<h2>Tensorflow.js - installation</h2>
+				<h2>Tensorflow.js - installation &amp; running</h2>
 				<ul>
 					<li class="fragment fade-up">
 						<code>yarn add @tensorflow/tfjs</code>
@@ -193,10 +284,10 @@ float* output = interpreter-&gt;typed_output_tensor&lt;float&gt;(0);// probabili
 				</ul>
 			</section>
 			<section>
-				<h2>Client side ML - Advantages</h2>
+				<h2>Client side ML - Advantages &#x1F60E;</h2>
 				<ul>
 					<li class="fragment fade-up">Free compute power (for running NN and feature processing)</li>
-					<li class="fragment fade-up">Free Real-time high definition data</li>
+					<li class="fragment fade-up">Free real-time high definition data</li>
 					<li class="fragment fade-up">Low latency</li>
 					<li class="fragment fade-up">Access to onboard devices and hardware (camera, sensors, mic)</li>
 					<li class="fragment fade-up">Customer data security - data doesnt leave device</li>
@@ -204,29 +295,50 @@ float* output = interpreter-&gt;typed_output_tensor&lt;float&gt;(0);// probabili
 				</ul>
 			</section>
 			<section>
-				<h2>Client side ML - Disdvantages</h2>
+				<h2>Client side ML - Disdvantages &#x1F62C;</h2>
 				<ul>
 					<li class="fragment fade-up">Power usage can be high</li>
-					<li class="fragment fade-up">Need to lots of model optimisation</li>
+					<li class="fragment fade-up">Need to lots of model &amp; feature optimisation &#x1F613;</li>
 				</ul>
 			</section>
 			<section>
 				<h2>Usages/ideas .. toil reduction</h2>
 				<ul>
-					<li class="fragment fade-up">UI customisation for the user</li>
-					<li class="fragment fade-up">Image recognition - read tickets &amp; timetable boards (crowdsource rt data)</li>
-					<li class="fragment fade-up">Help assistant - NLP</li>
+					<li class="fragment fade-up">UI customisation for the user
+						<aside class="notes"></aside>
+					</li>
+					<li class="fragment fade-up">Image recognition - read tickets &amp; timetable boards (crowdsource real-time data)</li>
+					<li class="fragment fade-up">Help assistant - Natural Language Processing</li>
+					<li class="fragment fade-up">ML becomes more useful as complexity grows
+						<aside class="notes">If all states can be computed and labelled you can train a small NN that can replace complex if/switch case</aside>
+					</li>
 				</ul>
 			</section>
 			<section>
 				<h2>Learning utilities</h2>
+				<ol>
+					<li class="fragment fade-up">TensorFlow for poets codelabs : Beginner
+						<br/>
+						<a href="https://codelabs.developers.google.com/?cat=TensorFlow">https://codelabs.developers.google.com/?cat=TensorFlow</a>
+					</li>
+					<li class="fragment fade-up">Machine learning crash course : Nice ML intro
+						<br/>
+						<a href="https://developers.google.com/machine-learning/crash-course/">https://developers.google.com/machine-learning/crash-course/</a>
+					</li>
+					<li class="fragment fade-up">TensorFlow tutorials : Deep dive into areas
+						<br/>
+						<a href="https://www.tensorflow.org/tutorials/">https://www.tensorflow.org/tutorials/</a>
+					</li>
+					<li class="fragment fade-up">GDG cloud group - Monday meetups</li>
+				</ol>
+			</section>
+			<section>
+				<h2>Thanks &#x1F603;</h2>
 				<ul>
-					<li> class="fragment fade-up"Machine learning crash course :<br/>
-						<a href="https://developers.google.com/machine-learning/crash-course/">https://developers.google.com/machine-learning/crash-course/</a></li>
-					<li class="fragment fade-up">Tensorflow for poets codelabs :<br/>
-						<a href="https://codelabs.developers.google.com/?cat=TensorFlow">https://codelabs.developers.google.com/?cat=TensorFlow</a></li>
-					<li class="fragment fade-up">Most are done in Robs learning repo:
-							<a href="https://github.com/sentinelweb/tensorflow_learn">https://github.com/sentinelweb/tensorflow_learn</a>
+					<li>Rob Munro</li>
+					<li>#tltechsummit18</li>
+					<li>Robs TF learning repo:<br/>
+						<a href="https://github.com/sentinelweb/tensorflow_learn">https://github.com/sentinelweb/tensorflow_learn</a>
 					</li>
 				</ul>
 			</section>
@@ -248,7 +360,6 @@ float* output = interpreter-&gt;typed_output_tensor&lt;float&gt;(0);// probabili
 				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
 			],
 			history: true,
-			loop: true,
 			slideNumber: 'c/v/t'
 		});
 	</script>

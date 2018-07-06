@@ -1,5 +1,17 @@
 .leader {
-    color: #aaaaee;
+    color: #e2aa43;
 }
+.reveal h1 {
+    color: #6c9ee9;
+    font-size: 2.5em;
+}
+
+.reveal h2 {
+    color: #8fe9c3;
+}
+.reveal h3 {
+    color: #559ae9;
+}
+li {list-style-type: circle;}
 
 
