@@ -38,12 +38,12 @@
 				<h2>What we will cover ...</h2>
 				<ul>
 					<li class="fragment fade-up">Jargon buster</li>
-					<li class="fragment fade-up">20,000 mile high overview of tensorflow Ecosystem</li>
+					<li class="fragment fade-up">20,000 mile high overview of Tensorflow ecosystem</li>
 					<li class="fragment fade-up">Training a model using TFPoets codelab scripts</li>
-					<li class="fragment fade-up">TFLite model deployment on Android &amp; iOS</li>
+					<li class="fragment fade-up">Deployment on Android &amp; iOS using TFLite</li>
 					<li class="fragment fade-up">Tensorflow.js</li>
-					<li class="fragment fade-up">Client side pros &amp; cons</li>
-					<li class="fragment fade-up">Possible usages</li>
+					<li class="fragment fade-up">Pros &amp; cons of Client side</li>
+					<li class="fragment fade-up">Possible usages &amp; TOIL reduction</li>
 					<li class="fragment fade-up">Learning</li>
 				</ul>
 			</section>
@@ -67,7 +67,7 @@
 			<section>
 				<h2>Transfer learning</h2>
 				<ul>
-					<li>A pre-trained neural net which can be refined by just training the final layers</li>
+					<li>Using pre-trained neural net which can be refined by just re-training the final layers</li>
 					<li class="fragment fade-up">Requires less computation and less data to train</li>
 				</ul>
 			</section>
@@ -85,8 +85,8 @@
 			<section>
 				<h2>Tensorflow API</h2>
 				<ul>
-					<li>A numerical computation dataflow API that builds a graph</li>
-					<li class="fragment fade-up">Graph gets built then executed on hardware, CPU, GPU, TPU</li>
+					<li>A dataflow API for numerical computation that builds a graph</li>
+					<li class="fragment fade-up">Graph gets built then executed on hardware - CPU, GPU, TPU</li>
 				</ul>
 			</section>
 			<section>
@@ -96,7 +96,8 @@
 					<li class="fragment fade-up">Java (Kotlin)</li>
 					<li class="fragment fade-up">JavaScript (New) - Tensorflow.js</li>
 					<li class="fragment fade-up">Swift (Early stage)</li>
-					<li class="fragment fade-up">Go, C</li>
+					<li class="fragment fade-up">Go</li>
+					<li class="fragment fade-up">C / C++</li>
 				</ul>
 			</section>
 			<section>
@@ -154,7 +155,7 @@
 				<ul>
 					<li class="fragment fade-up">Execute retrain script in tensorflow for poets</li>
 					<li class="fragment fade-up">More steps give a better model (takes longer) 500 &lt; steps &lt; 5000+</li>
-					<li class="fragment fade-up">Monitor prgress with tensorboard</li>
+					<li class="fragment fade-up">Monitor progress with tensorboard</li>
 				</ul>
 			</section>
 			<section>
@@ -188,8 +189,13 @@
 						<code>toco</code>
 					</li class="fragment fade-up">
 					<li class="fragment fade-up">Lite format uses FlatBuffers - memory mapped for efficiency</li>
-					<li class="fragment fade-up">Only supports a subset of Tensorflow operations (No transfer learning)</li>
+					<li class="fragment fade-up">Only supports a subset of Tensorflow operations (No transfer learning) &#x1F614;</li>
 				</ul>
+				<aside class="notes">
+					<ul>
+						<li>Memory mapping is more efficient as bytes can be loaded in memory directly without conversion</li>
+					</ul>
+				</aside>
 			</section>
 			<section>
 				<h2>TFLite - Integration Android</h2>
@@ -239,7 +245,9 @@ float* probs = interpreter-&gt;typed_output_tensor&lt;float&gt;(0);
 				<aside class="notes">
 					<ul>
 						<li>Apologise for Objective C - no swift example</li>
-						<li>Load model to <code>FlatBufferModel</code></li>
+						<li>Load model to
+							<code>FlatBufferModel</code>
+						</li>
 						<li>Load the list of labels</li>
 						<li>Initialise TFLite interpreter with model</li>
 						<li>When image is captured - convert bytes to native format</li>
@@ -247,6 +255,9 @@ float* probs = interpreter-&gt;typed_output_tensor&lt;float&gt;(0);
 						<li>Get probabilities by calling interpreter-&gt;typed_output_tensor</li>
 					</ul>
 				</aside>
+			</section>
+			<section>
+				<h2>Results - Trainspotter app</h2>
 			</section>
 			<section>
 				<h3>Trainspotter - TGV</h3>
@@ -266,11 +277,17 @@ float* probs = interpreter-&gt;typed_output_tensor&lt;float&gt;(0);
 					<li class="fragment fade-up">Javascript binding for the Tensorflow C library</li>
 					<li class="fragment fade-up">Works in browser &amp; NodeJS</li>
 					<li class="fragment fade-up">Can do transfer learning / retraining</li>
-					<li class="fragment fade-up">Can use WebGL (Linux only ATM)</li>
+					<li class="fragment fade-up">Can use WebGL (Linux only ATM) (Faster)</li>
 					<li class="fragment fade-up">Can use browser sensor data directly to retrain models</li>
 					<li class="fragment fade-up">Not as fast as native implementations - gets slower with larger models</li>
-					<li class="fragment fade-up">Exporting models in development progress</li>
+					<li class="fragment fade-up">Exporting models in development progress &#x1F614;</li>
 				</ul>
+				<aside class="notes">
+					<ul>
+						<li>Performace measurements says around 1.5x slower than Python</li>
+						<li>Can do ML using JavaScript !! - much lower barrier to entry</li>
+					</ul>
+				</aside>
 			</section>
 			<section>
 				<h2>Tensorflow.js - installation &amp; running</h2>
@@ -286,11 +303,11 @@ float* probs = interpreter-&gt;typed_output_tensor&lt;float&gt;(0);
 			<section>
 				<h2>Client side ML - Advantages &#x1F60E;</h2>
 				<ul>
-					<li class="fragment fade-up">Free compute power (for running NN and feature processing)</li>
+					<li class="fragment fade-up">&quot;Free&quot; compute power (for running NN and feature processing)</li>
 					<li class="fragment fade-up">Free real-time high definition data</li>
 					<li class="fragment fade-up">Low latency</li>
 					<li class="fragment fade-up">Access to onboard devices and hardware (camera, sensors, mic)</li>
-					<li class="fragment fade-up">Customer data security - data doesnt leave device</li>
+					<li class="fragment fade-up">Customer data security - data doesn't leave device</li>
 					<li class="fragment fade-up">for TF.js can use device input for retraining</li>
 				</ul>
 			</section>
@@ -304,12 +321,11 @@ float* probs = interpreter-&gt;typed_output_tensor&lt;float&gt;(0);
 			<section>
 				<h2>Usages/ideas .. toil reduction</h2>
 				<ul>
-					<li class="fragment fade-up">UI customisation for the user
-						<aside class="notes"></aside>
-					</li>
 					<li class="fragment fade-up">Image recognition - read tickets &amp; timetable boards (crowdsource real-time data)</li>
 					<li class="fragment fade-up">Help assistant - Natural Language Processing</li>
-					<li class="fragment fade-up">ML becomes more useful as complexity grows
+					<li class="fragment fade-up">UI customisation for the user</li>
+					<li class="fragment fade-up">Selleing extra products based on customer's present situation</li>
+					<li class="fragment fade-up">ML becomes more useful as software complexity grows
 						<aside class="notes">If all states can be computed and labelled you can train a small NN that can replace complex if/switch case</aside>
 					</li>
 				</ul>
@@ -337,7 +353,8 @@ float* probs = interpreter-&gt;typed_output_tensor&lt;float&gt;(0);
 				<ul>
 					<li>Rob Munro</li>
 					<li>#tltechsummit18</li>
-					<li>Robs TF learning repo:<br/>
+					<li>Robs TF learning repo:
+						<br/>
 						<a href="https://github.com/sentinelweb/tensorflow_learn">https://github.com/sentinelweb/tensorflow_learn</a>
 					</li>
 				</ul>
