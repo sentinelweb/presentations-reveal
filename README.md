@@ -4,7 +4,7 @@ My slides for various presentations - created with http://revealjs.com/.
 
 # Beyond MVP
 
-This presentation discusses architectural patterns fro building a robust model on Android
+This presentation discusses architectural patterns for building a robust model on Android
 
 https://sentinelweb.github.io/presentations-reveal/beyond_mvp.html#/
 
