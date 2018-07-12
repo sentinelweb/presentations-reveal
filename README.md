@@ -1,4 +1,4 @@
-# Presentations using reveal.js
+# Presentations with reveal.js
 
 My slides for various presentations - created with http://revealjs.com/.
 
