@@ -1,6 +1,6 @@
 # Presentations using reveal.js
 
-My slides for various presentation created with http://revealjs.com/.
+My slides for various presentations - created with http://revealjs.com/.
 
 # Beyond MVP
 
@@ -16,6 +16,6 @@ https://sentinelweb.github.io/presentations-reveal/tensorflow_crash_course_on_do
 
 # Using tensorflow client side
 
-A 25min presentation forthe trainline engineering summit (http://tlengineeringsummit.co.uk/)
+A 25 min presentation for the trainline engineering summit (http://tlengineeringsummit.co.uk/)
 
 https://sentinelweb.github.io/presentations-reveal/tensorflow_client.html
