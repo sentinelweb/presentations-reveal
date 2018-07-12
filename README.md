@@ -13,3 +13,9 @@ https://sentinelweb.github.io/presentations-reveal/beyond_mvp.html#/
 A small presentation for the GDG Cloud Tensorflow meetup - explains running tensorflow examples using Docker
 
 https://sentinelweb.github.io/presentations-reveal/tensorflow_crash_course_on_docker.html
+
+# Using tensorflow client side
+
+A 25min presentation forthe trainline engineering summit (http://tlengineeringsummit.co.uk/)
+
+https://sentinelweb.github.io/presentations-reveal/tensorflow_client.html
